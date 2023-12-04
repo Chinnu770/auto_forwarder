@@ -1,0 +1,16 @@
+name: auto-forwarder
+
+services:
+  - name: python-app
+    environment_slug: python
+    github:
+      branch: main
+      deploy_on_push: true
+    run_command: "python bot.py"
+    instance_count: 1
+    routes:
+      - path: "/"
+        type: "http"
+        destination:
+          app: python-app
+          port: 8000 
