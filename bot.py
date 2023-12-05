@@ -53,7 +53,7 @@ except Exception as ap:
 async def sender_bH(event):
     for i in TO:
         try:
-            message_text = event.raw_text.lower()
+            message_text = event.text  # Use the original casing of the message
 
             if any(blocked_text in message_text for blocked_text in BLOCKED_TEXTS):
                 print(f"Blocked message containing one of the specified texts: {event.raw_text}")
